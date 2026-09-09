@@ -1,0 +1,19 @@
+name: plugin-runtime-interview-20260909
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: interview
+      POSTGRES_PASSWORD: interview_local_only
+      POSTGRES_DB: plugin_runtime_interview
+    ports:
+      - "127.0.0.1:${INTERVIEW_PG_PORT:-55479}:5432"
+    volumes:
+      - interview_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U interview -d plugin_runtime_interview"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+volumes:
+  interview_pgdata:
