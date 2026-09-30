@@ -19,3 +19,13 @@ coverage.xml
 .DS_Store
 .idea/
 .vscode/
+
+# Antigravity worktrees and state
+.worktrees/
+.agents/
+AGENTS.md
+GEMINI.md
+docs/
+scripts/
+mcp_config.json.template
+

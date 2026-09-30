@@ -16,7 +16,7 @@ pythonpath = ["."]
 markers = ["postgres: requires the disposable Docker interview PostgreSQL"]
 
 [tool.basedpyright]
-include = ["."]
+include = ["core", "adapters", "apps", "plugins", "tests", "main.py"]
 strict = ["core", "adapters", "apps", "plugins", "main.py"]
 pythonVersion = "3.14"
 typeCheckingMode = "standard"
@@ -24,6 +24,7 @@ typeCheckingMode = "standard"
 [tool.ruff]
 target-version = "py314"
 line-length = 100
+extend-exclude = [".agents"]
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F", "I", "UP", "B"]
